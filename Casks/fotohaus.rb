@@ -13,16 +13,17 @@ cask "fotohaus" do
   end
 
   depends_on arch: :arm64
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Fotohaus.app"
   binary "#{appdir}/Fotohaus.app/Contents/MacOS/fotohaus-cli"
 
   # Fotohaus is not notarized yet. Clearing the download quarantine flag lets it
   # open without the "damaged" warning, the same step INSTALL.md describes.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Fotohaus.app"]
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:         ["-dr", "com.apple.quarantine", "{{appdir}}/Fotohaus.app"],
+        must_succeed: false
   end
 
   zap trash: [
