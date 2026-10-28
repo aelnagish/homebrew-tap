@@ -1,6 +1,6 @@
 cask "fotohaus" do
-  version "1.0.0"
-  sha256 "70f156cbac7ff5019092b8e1e8d983393ff86f1691272716b41d409325ede22c"
+  version "1.0.1"
+  sha256 "06675ca8301b46d7701f0c83dbb7d3896c713bfc599d171cf8541eaf6491bf87"
 
   url "https://github.com/aelnagish/Fotohaus/releases/download/v#{version}/Fotohaus-#{version}-arm64.dmg"
   name "Fotohaus"
